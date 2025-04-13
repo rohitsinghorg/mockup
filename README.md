@@ -1,25 +1,25 @@
-# Mockup
+# 📦 Mockup
 
-Mockup helps programmer by providing some predefined source of data. Programmers can use this data to display the list of automobiles, buildings, emojis etc.
+Mockup helps developers quickly generate and use predefined mock data for various categories like automobiles, buildings, emojis, and more. It’s designed to boost your development speed, especially when you're working on UI, testing, or prototyping without an actual backend.
 
-### `Why you should use`
+### 🚀 Why Use Mockup?
 
-- Predefined POJOs
-- Fill the API layer gap
-- Showcase your work in record time
-- Increase productivity
-- Easy to use
+- ✅ Ready-to-use Models – Includes a wide range of predefined POJOs to get you started instantly.
+- 🔌 Bridge the API Gap – Perfect for filling in while your backend is under development.
+- 🧪 Fast Prototyping – Showcase your UI and features without waiting for real data.
+- ⚡ Boost Productivity – Focus more on building features, not faking data every time.
+- 🎯 Developer-Friendly – Simple to integrate and easy to extend.
 
+## 🚀 Installation
 
-## Installation
-
-First, we need to do add `mockup` to the dependencies of the `pubspec.yaml`
+Add mockup to your project by including it in your pubspec.yaml file:
 
 ```yaml
 dependencies:
-  mockup: ^0.0.1
+  mockup: ^1.0.0
 ```
-or you can also type in the terminal
+
+Or use the command line for quick setup:
 
 ```bash
 flutter pub add mockup
@@ -27,70 +27,152 @@ flutter pub add mockup
 
 ## Usage
 
-To access the data source, you can use the below keywords:
+The `mockup` package provides an easy way to fetch predefined data for multiple categories such as automobiles, buildings, emojis, flowers, quotes, and users.
 
-- `list` is used to generate the list of available data source. For example,
-
-
-```dart
-Automobile().list; // returns the list of automobile
-Building().list; // returns the list of building
-Emoji().list; // returns the list of emoji
-Quote().list; // returns the list of quote
-User().list; // returns the list of user
-```
-
-- `listUpTo()` is used to generate the strict data-source. For example,
-
+### 🔧 Example
 
 ```dart
-Automobile().listUpTo(12); // returns 12 records
-Quote().listUpTo(4); // returns 4 records
+// Automobiles
+List<AutomobileModel> cars = Mockup.automobile.getAll();
+AutomobileModel randomCar = Mockup.automobile.getRandomItem();
+
+// Buildings
+List<BuildingModel> buildings = Mockup.building.getItems(10);
+BuildingModel buildingAtIndex = Mockup.building.getItemAt(2);
+
+// Emojis
+List<EmojiModel> emojis = Mockup.emoji.getShuffledList();
+EmojiModel randomEmoji = Mockup.emoji.getRandomItem();
+
+// Flowers
+List<FlowerModel> flowers = Mockup.flower.getAll();
+
+// Quotes
+QuoteModel quoteOfTheDay = Mockup.quote.getRandomItem();
+
+// Users
+List<UserModel> users = Mockup.user.getItems(5);
 ```
 
-- `object` gives a single item of data-source. For example,
+### 📚 Method Descriptions
+
+Each category (like Mockup.automobile, Mockup.building, etc.) includes the following methods:
+
+- `getAll()`
+Returns all available data items as a distinct list.
+
+- `getItems([int total = 1])`
+Returns a list with the specified number of items. If the total exceeds available unique items, duplicates may be included.
+
+- `getShuffledList()`
+Returns a shuffled copy of all data items. The original list remains unchanged.
+
+- `getItemAt(int index)`
+Returns the item at the specified index. Index wraps around if it's out of bounds.
+
+- `getRandomItem()`
+Returns a single, randomly selected item.
+
+
+### ✍️ Text Generation
+
+`Mockup.text` provides utilities to generate random alphanumeric strings, sentences, and paragraphs—perfect for filling in placeholder content during UI development or testing.
+
+### 🔧 Example
 
 ```dart
-Building().object; // returns the random building object
+// Generate a random alphanumeric string (10 characters)
+final randomAlphanumeric = Mockup.text.randomAlphanumeric;
+
+// Generate 2 random sentences
+final twoSentences = Mockup.text.generateSentences(numberOfSentence: 2);
+
+// Generate 2 short paragraphs
+final twoShortParas = Mockup.text.generateShortParagraph(2);
+
+// Generate 2 medium paragraphs
+final twoMediumParas = Mockup.text.generateMediumParagraph(2);
+
+// Generate 2 long paragraphs
+final twoLongParas = Mockup.text.generateLongParagraph(2);
 ```
 
-Sometimes, the user requires only a few data instead of accessing the complete list or object. In that case, user can either use
+### 📚 Method Descriptions
+
+- `randomAlphanumeric`
+Returns a 10-character random alphanumeric string.
+
+- `generateSentences({int numberOfSentence = 1})`
+Generates the specified number of random, grammatically structured sentences.
+
+- `generateShortParagraph([int numberOfParagraph = 1])`
+Returns one or more short paragraphs containing a few sentences each.
+
+- `generateMediumParagraph([int numberOfParagraph = 1])`
+Returns medium-sized paragraphs with a moderate number of sentences.
+
+- `generateLongParagraph([int numberOfParagraph = 1])`
+Returns long paragraphs composed of a larger number of sentences.
+
+### 🔢 Number Generation
+
+`Mockup.number` provides utilities for generating random numeric values and formatted strings in various number systems—decimal, binary, hexadecimal, octal—as well as random IP addresses. It’s great for testing inputs, generating placeholder data, or simulating system-level values.
+
+### 🔧 Example
 
 ```dart
-User().object.gender; // Female
+// Generate a random number between 100 and 999
+final random3DigitNumber = Mockup.number.randomDigit(100, 999);
+
+// Generate a 5-digit binary string
+final random5DigitBinary = Mockup.number.randomBinaryString(5);
+
+// Generate a 5-digit decimal string
+final random5DigitDecimal = Mockup.number.randomDecimalString(5);
+
+// Generate a 5-digit hexadecimal string
+final random5DigitHexadecimal = Mockup.number.randomHexString(5);
+
+// Generate a 5-digit octal string
+final random5DigitOctal = Mockup.number.randomOctalString(5);
+
+// Generate a random IPv4 address
+final randomIPv4 = Mockup.number.randomIPv4();
+
+// Generate a random IPv6 address
+final randomIPv6 = Mockup.number.randomIPv6();
 ```
-or
 
-```dart
-User().gender; // Female
-```
+### 📚 Method Descriptions
 
-*Note: Every data source has different attributes. An intellisense window will auto-suggest you based on the model you use. User can also see the available attributes by pressing Ctrl+Click.*
+- `randomDigit([int from = 0, int to = 99])`
+Returns a random integer between the specified bounds.
 
-### Customised Data Provider
+- `randomDecimalString([int length = 1])`
+Generates a string of decimal digits (0–9) of the given length.
 
-Expecting a list or an object from every data source is good habit. But what if you require something really out of the box like an IP address, or 4-digit octet code, or a lorem-ipsum text or anything?
+- `randomBinaryString([int length = 1])`
+Generates a binary string (e.g., "01011") of the given length.
 
-To fulfill these kind of requirements, Mockup package has some extra mockup classes. These are:
+- `randomHexString([int length = 1])`
+Produces a hexadecimal string (0–F) of the specified length.
 
-**RandomGenerator**
-- `generateEmail()` returns a random email.
-- `generateFirstName()` returns a random first name.
-- `generateLastName()` returns a random last name.
-- `generateMobile()` returns a random mobile.
-- `generateRandomDigit(from, to)` returns a random number between a range. By default, range is from 0 to 99.
-- `generateRandomDecimal(length)` returns a decimal number. By default, it will return a random one-digit number.
-- `generateRandomHexadecimal(length)` returns a random hexadecimal number. By default, it will return one hexadecimal number.
-- `generateRandomBinary(length)` returns a random binary number. By default, it will return one binary digit.
-- `generateRandomOctal(length)` returns a random octal number. By default, it will return one octal number.
-- `generateIPv4()` returns a random IPv4 address.
+- `randomOctalString([int length = 1])`
+Generates an octal string (0–7) of the desired length.
 
-**TextIpsum**
-- `createSentence(length)` returns a sentence. By default, it will return one sentence.
-- `createShortParagraph(length)` returns a short paragraph. By default, it will create one small paragraph.
-- `createMediumParagraph(length)` returns a medium paragraph. By default, it will create one medium paragraph.
-- `createLargeParagraph(length)` returns a sentence. By default, it will create one large paragraph.
+- `randomIPv4()`
+Generates a random IPv4 address in the format x.x.x.x.
 
+- `randomIPv6()`
+Produces a random IPv6 address with eight 4-digit hex segments.
+
+## Gallery
+
+![Main](assets/main.jpg)
+![Automobile](assets/automobile.jpg)
+![Flower](assets/flower.jpg)
+![Text](assets/text.jpg)
+![Number](assets/number.jpg)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
