@@ -1,5 +1,5 @@
-import 'dart:math';
-import 'package:mockup/src/utils/extension.dart';
+import "dart:math";
+import "package:mockup/src/utils/extension.dart";
 
 /// Provides internal utilities for generating random number-based mock data.
 ///
@@ -93,7 +93,7 @@ class NumberProvider {
   /// Mockup.number.randomIPv4(); // "192.168.1.101"
   /// ```
   String randomIPv4() {
-    return List.generate(4, (_) => _random.numberBetween(0, 255)).join('.');
+    return List.generate(4, (_) => _random.numberBetween(0, 255)).join(".");
   }
 
   /// Generates a random IPv6 address.
@@ -106,7 +106,7 @@ class NumberProvider {
   /// ```
   String randomIPv6() {
     String group() =>
-        _random.nextInt(0x10000).toRadixString(16).padLeft(4, '0');
-    return List.generate(8, (_) => group()).join(':');
+        _random.nextInt(0x10000).toRadixString(16).padLeft(4, "0");
+    return List.generate(8, (_) => group()).join(":");
   }
 }

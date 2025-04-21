@@ -1,8 +1,8 @@
-import 'package:mockup/src/data/quote_data.dart';
-import 'package:mockup/src/utils/extension.dart';
+import "package:mockup/src/data/quote_data.dart";
+import "package:mockup/src/utils/extension.dart";
 
-import '../base/base_provider.dart';
-import '../model/quote_model.dart';
+import "../base/base_provider.dart";
+import "../model/quote_model.dart";
 
 /// Provider for quote mock data.
 ///

@@ -1,6 +1,6 @@
-import 'dart:math';
-import 'package:mockup/src/utils/extension.dart';
-import '../data/text_data.dart';
+import "dart:math";
+import "package:mockup/src/utils/extension.dart";
+import "../data/text_data.dart";
 
 /// Provider for generating random text content.
 ///
@@ -33,12 +33,12 @@ class TextProvider {
   /// [minLength] and [maxLength] params is used to define the sentence length
   ///
   String _makeSentence([int minLength = _medium, int maxLength = _xLarge]) {
-    int sentenceLength = Random().numberBetween(minLength, maxLength);
-    int wordIndex =
+    final int sentenceLength = Random().numberBetween(minLength, maxLength);
+    final int wordIndex =
         Random().numberBetween(0, textData.length - sentenceLength - 1);
-    String sentence =
+    final String sentence =
         textData.getRange(wordIndex, wordIndex + sentenceLength).join(" ");
-    String sentenceWithCapitalAndPeriod =
+    final String sentenceWithCapitalAndPeriod =
         sentence[0].toUpperCase() + sentence.substring(1) + ". ";
     return sentenceWithCapitalAndPeriod;
   }

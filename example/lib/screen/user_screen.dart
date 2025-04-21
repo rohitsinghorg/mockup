@@ -11,10 +11,8 @@ class UserScreen extends StatefulWidget {
 class _UserScreenState extends State<UserScreen> {
   // list of emojis
   List<UserModel> userList = Mockup.user.getAll();
-  List<UserModel> userListWithFixedLength = Mockup.user
-      .getItems(30);
-  List<UserModel> refreshUserList =
-      Mockup.user.getShuffledList();
+  List<UserModel> userListWithFixedLength = Mockup.user.getItems(30);
+  List<UserModel> refreshUserList = Mockup.user.getShuffledList();
   UserModel userItem = Mockup.user.getItemAt(5);
   UserModel refreshUserItem = Mockup.user.getRandomItem();
 
@@ -26,10 +24,7 @@ class _UserScreenState extends State<UserScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              "User List",
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
+            Text("User List", style: Theme.of(context).textTheme.titleMedium),
             ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,

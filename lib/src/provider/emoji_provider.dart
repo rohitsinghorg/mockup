@@ -1,8 +1,8 @@
-import 'package:mockup/src/data/emoji_data.dart';
-import 'package:mockup/src/utils/extension.dart';
+import "package:mockup/src/data/emoji_data.dart";
+import "package:mockup/src/utils/extension.dart";
 
-import '../base/base_provider.dart';
-import '../model/emoji_model.dart';
+import "../base/base_provider.dart";
+import "../model/emoji_model.dart";
 
 /// Provider for emoji mock data.
 ///

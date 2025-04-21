@@ -68,47 +68,47 @@ class FlowerModel {
   /// The JSON keys are expected to use snake_case (e.g., "common_name") while
   /// the Dart properties use camelCase (e.g., commonName).
   factory FlowerModel.fromJson(Map<String, dynamic> json) => FlowerModel(
-    id: json["id"],
-    commonName: json["common_name"],
-    scientificName: json["scientific_name"],
-    colors: json["colors"] == null
-        ? []
-        : List<String>.from(json["colors"]!.map((x) => x)),
-    bloomingSeason: json["blooming_season"],
-    symbolism: json["symbolism"] == null
-        ? []
-        : List<String>.from(json["symbolism"]!.map((x) => x)),
-    nativeRegion: json["native_region"],
-    fragrance: json["fragrance"],
-    sunRequirements: json["sun_requirements"],
-    waterRequirements: json["water_requirements"],
-    plantType: json["plant_type"],
-    price: json["price"]?.toDouble(),
-    shortDescription: json["short_description"],
-    description: json["description"],
-  );
+        id: json["id"],
+        commonName: json["common_name"],
+        scientificName: json["scientific_name"],
+        colors: json["colors"] == null
+            ? []
+            : List<String>.from(json["colors"]!.map((x) => x)),
+        bloomingSeason: json["blooming_season"],
+        symbolism: json["symbolism"] == null
+            ? []
+            : List<String>.from(json["symbolism"]!.map((x) => x)),
+        nativeRegion: json["native_region"],
+        fragrance: json["fragrance"],
+        sunRequirements: json["sun_requirements"],
+        waterRequirements: json["water_requirements"],
+        plantType: json["plant_type"],
+        price: json["price"]?.toDouble(),
+        shortDescription: json["short_description"],
+        description: json["description"],
+      );
 
   /// Converts this [FlowerModel] to a JSON map.
   ///
   /// The JSON keys use snake_case (e.g., "common_name") while the Dart
   /// properties use camelCase (e.g., commonName).
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "common_name": commonName,
-    "scientific_name": scientificName,
-    "colors":
-    colors == null ? [] : List<dynamic>.from(colors!.map((x) => x)),
-    "blooming_season": bloomingSeason,
-    "symbolism": symbolism == null
-        ? []
-        : List<dynamic>.from(symbolism!.map((x) => x)),
-    "native_region": nativeRegion,
-    "fragrance": fragrance,
-    "sun_requirements": sunRequirements,
-    "water_requirements": waterRequirements,
-    "plant_type": plantType,
-    "price": price,
-    "short_description": shortDescription,
-    "description": description,
-  };
+        "id": id,
+        "common_name": commonName,
+        "scientific_name": scientificName,
+        "colors":
+            colors == null ? [] : List<dynamic>.from(colors!.map((x) => x)),
+        "blooming_season": bloomingSeason,
+        "symbolism": symbolism == null
+            ? []
+            : List<dynamic>.from(symbolism!.map((x) => x)),
+        "native_region": nativeRegion,
+        "fragrance": fragrance,
+        "sun_requirements": sunRequirements,
+        "water_requirements": waterRequirements,
+        "plant_type": plantType,
+        "price": price,
+        "short_description": shortDescription,
+        "description": description,
+      };
 }

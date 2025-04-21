@@ -1,8 +1,8 @@
-import 'package:mockup/src/data/user_data.dart';
-import 'package:mockup/src/utils/extension.dart';
+import "package:mockup/src/data/user_data.dart";
+import "package:mockup/src/utils/extension.dart";
 
-import '../base/base_provider.dart';
-import '../model/user_model.dart';
+import "../base/base_provider.dart";
+import "../model/user_model.dart";
 
 /// Provider for user mock data.
 ///

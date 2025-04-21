@@ -59,37 +59,41 @@ class AutomobileModel {
   ///
   /// The JSON keys are expected to use snake_case (e.g., "fuel_type") while
   /// the Dart properties use camelCase (e.g., fuelType).
-  factory AutomobileModel.fromJson(Map<String, dynamic> json) => AutomobileModel(
-    id: json["id"],
-    make: json["make"],
-    model: json["model"],
-    year: json["year"],
-    fuelType: json["fuel_type"],
-    isEcoFriendly: json["is_eco_friendly"],
-    horsepower: json["horsepower"],
-    mileage: json["mileage"]?.toDouble(),
-    rating: json["rating"]?.toDouble(),
-    shortDescription: json["short_description"],
-    description: json["description"],
-    features: json["features"] == null ? [] : List<String>.from(json["features"]!.map((x) => x)),
-  );
+  factory AutomobileModel.fromJson(Map<String, dynamic> json) =>
+      AutomobileModel(
+        id: json["id"],
+        make: json["make"],
+        model: json["model"],
+        year: json["year"],
+        fuelType: json["fuel_type"],
+        isEcoFriendly: json["is_eco_friendly"],
+        horsepower: json["horsepower"],
+        mileage: json["mileage"]?.toDouble(),
+        rating: json["rating"]?.toDouble(),
+        shortDescription: json["short_description"],
+        description: json["description"],
+        features: json["features"] == null
+            ? []
+            : List<String>.from(json["features"]!.map((x) => x)),
+      );
 
   /// Converts this [AutomobileModel] to a JSON map.
   ///
   /// The JSON keys use snake_case (e.g., "fuel_type") while the Dart
   /// properties use camelCase (e.g., fuelType).
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "make": make,
-    "model": model,
-    "year": year,
-    "fuel_type": fuelType,
-    "is_eco_friendly": isEcoFriendly,
-    "horsepower": horsepower,
-    "mileage": mileage,
-    "rating": rating,
-    "short_description": shortDescription,
-    "description": description,
-    "features": features == null ? [] : List<dynamic>.from(features!.map((x) => x)),
-  };
+        "id": id,
+        "make": make,
+        "model": model,
+        "year": year,
+        "fuel_type": fuelType,
+        "is_eco_friendly": isEcoFriendly,
+        "horsepower": horsepower,
+        "mileage": mileage,
+        "rating": rating,
+        "short_description": shortDescription,
+        "description": description,
+        "features":
+            features == null ? [] : List<dynamic>.from(features!.map((x) => x)),
+      };
 }

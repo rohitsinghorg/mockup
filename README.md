@@ -168,11 +168,9 @@ Produces a random IPv6 address with eight 4-digit hex segments.
 
 ## Gallery
 
-![Main](assets/main.jpg)
-![Automobile](assets/automobile.jpg)
-![Flower](assets/flower.jpg)
-![Text](assets/text.jpg)
-![Number](assets/number.jpg)
+| <img src="https://github.com/rohitsinghorg/mockup/raw/master/assets/main.jpg" width=240 /> Main          | <img src="https://github.com/rohitsinghorg/mockup/raw/master/assets/automobile.jpg" width=240 /> Automobile | <img src="https://github.com/rohitsinghorg/mockup/raw/master/assets/flower.jpg" width=240 /> Flower |
+|----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| <img src="https://github.com/rohitsinghorg/mockup/raw/master/assets/number.jpg" width=240 /> Number Data | <img src="https://github.com/rohitsinghorg/mockup/raw/master/assets/text.jpg" width=240 /> Text Data        |                                                                                                     |
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

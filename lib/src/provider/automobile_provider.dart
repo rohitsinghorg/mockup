@@ -1,7 +1,7 @@
-import 'package:mockup/src/data/automobile_data.dart';
-import 'package:mockup/src/model/automobile_model.dart';
-import 'package:mockup/src/utils/extension.dart';
-import '../base/base_provider.dart';
+import "package:mockup/src/data/automobile_data.dart";
+import "package:mockup/src/model/automobile_model.dart";
+import "package:mockup/src/utils/extension.dart";
+import "../base/base_provider.dart";
 
 /// Provider for automobile mock data.
 ///

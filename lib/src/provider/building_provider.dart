@@ -1,7 +1,7 @@
-import 'package:mockup/src/data/building_data.dart';
-import 'package:mockup/src/utils/extension.dart';
-import '../base/base_provider.dart';
-import '../model/building_model.dart';
+import "package:mockup/src/data/building_data.dart";
+import "package:mockup/src/utils/extension.dart";
+import "../base/base_provider.dart";
+import "../model/building_model.dart";
 
 /// Provider for building mock data.
 ///
