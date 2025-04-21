@@ -11,10 +11,8 @@ class FlowerScreen extends StatefulWidget {
 class _FlowerScreenState extends State<FlowerScreen> {
   // list of emojis
   List<FlowerModel> flowerList = Mockup.flower.getAll();
-  List<FlowerModel> flowerListWithFixedLength = Mockup.flower
-      .getItems(30);
-  List<FlowerModel> refreshFlowerList =
-      Mockup.flower.getShuffledList();
+  List<FlowerModel> flowerListWithFixedLength = Mockup.flower.getItems(30);
+  List<FlowerModel> refreshFlowerList = Mockup.flower.getShuffledList();
   FlowerModel flowerItem = Mockup.flower.getItemAt(5);
   FlowerModel refreshFlowerItem = Mockup.flower.getRandomItem();
 
@@ -26,10 +24,7 @@ class _FlowerScreenState extends State<FlowerScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              "Flower List",
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
+            Text("Flower List", style: Theme.of(context).textTheme.titleMedium),
             ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,

@@ -1,20 +1,20 @@
 library mockup;
 
-import 'src/provider/automobile_provider.dart';
-import 'src/provider/building_provider.dart';
-import 'src/provider/emoji_provider.dart';
-import 'src/provider/flower_provider.dart';
-import 'src/provider/number_provider.dart';
-import 'src/provider/quote_provider.dart';
-import 'src/provider/text_provider.dart';
-import 'src/provider/user_provider.dart';
+import "src/provider/automobile_provider.dart";
+import "src/provider/building_provider.dart";
+import "src/provider/emoji_provider.dart";
+import "src/provider/flower_provider.dart";
+import "src/provider/number_provider.dart";
+import "src/provider/quote_provider.dart";
+import "src/provider/text_provider.dart";
+import "src/provider/user_provider.dart";
 
-export 'src/model/automobile_model.dart';
-export 'src/model/building_model.dart';
-export 'src/model/emoji_model.dart';
-export 'src/model/flower_model.dart';
-export 'src/model/quote_model.dart';
-export 'src/model/user_model.dart';
+export "src/model/automobile_model.dart";
+export "src/model/building_model.dart";
+export "src/model/emoji_model.dart";
+export "src/model/flower_model.dart";
+export "src/model/quote_model.dart";
+export "src/model/user_model.dart";
 
 ///
 /// The `Mockup` class provides controlled access to various mockup data BLoCs.

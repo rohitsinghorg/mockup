@@ -49,9 +49,7 @@ class MockupExample extends StatelessWidget {
               },
               child: Text("Automobile Data"),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -61,9 +59,7 @@ class MockupExample extends StatelessWidget {
               },
               child: Text("Building Data"),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -73,9 +69,7 @@ class MockupExample extends StatelessWidget {
               },
               child: Text("Emoji Data"),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -85,9 +79,7 @@ class MockupExample extends StatelessWidget {
               },
               child: Text("Flower Data"),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -97,9 +89,7 @@ class MockupExample extends StatelessWidget {
               },
               child: Text("Quote Data"),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -109,13 +99,9 @@ class MockupExample extends StatelessWidget {
               },
               child: Text("User Data"),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             Divider(),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -125,9 +111,7 @@ class MockupExample extends StatelessWidget {
               },
               child: Text("Text Data"),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(

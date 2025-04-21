@@ -11,10 +11,8 @@ class EmojiScreen extends StatefulWidget {
 class _EmojiScreenState extends State<EmojiScreen> {
   // list of emojis
   List<EmojiModel> emojiList = Mockup.emoji.getAll();
-  List<EmojiModel> emojiListWithFixedLength = Mockup.emoji
-      .getItems(30);
-  List<EmojiModel> refreshEmojiList =
-      Mockup.emoji.getShuffledList();
+  List<EmojiModel> emojiListWithFixedLength = Mockup.emoji.getItems(30);
+  List<EmojiModel> refreshEmojiList = Mockup.emoji.getShuffledList();
   EmojiModel emojiItem = Mockup.emoji.getItemAt(5);
   EmojiModel refreshEmojiItem = Mockup.emoji.getRandomItem();
 
@@ -26,10 +24,7 @@ class _EmojiScreenState extends State<EmojiScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              "Emoji List",
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
+            Text("Emoji List", style: Theme.of(context).textTheme.titleMedium),
             ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,

@@ -1,8 +1,8 @@
-import 'package:mockup/src/data/flower_data.dart';
-import 'package:mockup/src/utils/extension.dart';
+import "package:mockup/src/data/flower_data.dart";
+import "package:mockup/src/utils/extension.dart";
 
-import '../base/base_provider.dart';
-import '../model/flower_model.dart';
+import "../base/base_provider.dart";
+import "../model/flower_model.dart";
 
 /// Provider for flower mock data.
 ///

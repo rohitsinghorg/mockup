@@ -35,23 +35,23 @@ class EmojiModel {
   ///
   /// Expected JSON structure should have matching keys for all properties.
   factory EmojiModel.fromJson(Map<String, dynamic> json) => EmojiModel(
-    emoji: json["emoji"],
-    name: json["name"],
-    shortname: json["shortname"],
-    unicode: json["unicode"],
-    html: json["html"],
-    category: json["category"],
-  );
+        emoji: json["emoji"],
+        name: json["name"],
+        shortname: json["shortname"],
+        unicode: json["unicode"],
+        html: json["html"],
+        category: json["category"],
+      );
 
   /// Converts this [EmojiModel] to a JSON map.
   ///
   /// All properties are included in the resulting map.
   Map<String, dynamic> toJson() => {
-    "emoji": emoji,
-    "name": name,
-    "shortname": shortname,
-    "unicode": unicode,
-    "html": html,
-    "category": category,
-  };
+        "emoji": emoji,
+        "name": name,
+        "shortname": shortname,
+        "unicode": unicode,
+        "html": html,
+        "category": category,
+      };
 }
