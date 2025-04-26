@@ -1,3 +1,4 @@
+import "package:mockup/src/base/json_provider.dart";
 import "package:mockup/src/data/quote_data.dart";
 import "package:mockup/src/utils/extension.dart";
 
@@ -9,7 +10,10 @@ import "../model/quote_model.dart";
 /// This class implements the [IBaseProvider] interface for [QuoteModel] objects
 /// and manages access to a collection of quote data. It follows the singleton pattern
 /// to ensure a single instance is used throughout the application.
-class QuoteProvider implements IBaseProvider<QuoteModel> {
+///
+/// Also implements [IJsonProvider] to provide access to raw JSON data,
+/// useful for mocking APIs or testing.
+class QuoteProvider implements IBaseProvider<QuoteModel>, IJsonProvider {
   /// Internal cache of quote data items.
   List<QuoteModel> _cachedList = [];
 
@@ -74,4 +78,11 @@ class QuoteProvider implements IBaseProvider<QuoteModel> {
   List<QuoteModel> getItems([int total = 1]) {
     return _cachedList.getAppendList(total);
   }
+
+  /// Returns a list of raw JSON entries representing automobile data.
+  ///
+  /// This overrides the [IJsonProvider.rawJson] getter and retrieves data
+  /// from the static [AutomobileData.json] source.
+  @override
+  List<Map<String, dynamic>> get rawJson => QuoteData.json;
 }

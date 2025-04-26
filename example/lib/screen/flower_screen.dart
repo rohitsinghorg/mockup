@@ -15,6 +15,7 @@ class _FlowerScreenState extends State<FlowerScreen> {
   List<FlowerModel> refreshFlowerList = Mockup.flower.getShuffledList();
   FlowerModel flowerItem = Mockup.flower.getItemAt(5);
   FlowerModel refreshFlowerItem = Mockup.flower.getRandomItem();
+  var json = Mockup.flower.rawJson;
 
   @override
   Widget build(BuildContext context) {

@@ -17,6 +17,7 @@ class _AutomobileScreenState extends State<AutomobileScreen> {
       Mockup.automobile.getShuffledList();
   AutomobileModel automobileItem = Mockup.automobile.getItemAt(5);
   AutomobileModel refreshAutomobileItem = Mockup.automobile.getRandomItem();
+  var json = Mockup.automobile.rawJson;
 
   @override
   Widget build(BuildContext context) {

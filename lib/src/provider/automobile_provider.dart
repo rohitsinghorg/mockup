@@ -1,3 +1,4 @@
+import "package:mockup/src/base/json_provider.dart";
 import "package:mockup/src/data/automobile_data.dart";
 import "package:mockup/src/model/automobile_model.dart";
 import "package:mockup/src/utils/extension.dart";
@@ -8,7 +9,11 @@ import "../base/base_provider.dart";
 /// This class implements the [IBaseProvider] interface for [AutomobileModel] objects
 /// and manages access to a collection of automobile data. It follows the singleton pattern
 /// to ensure a single instance is used throughout the application.
-class AutomobileProvider implements IBaseProvider<AutomobileModel> {
+///
+/// Also implements [IJsonProvider] to provide access to raw JSON data,
+/// useful for mocking APIs or testing.
+class AutomobileProvider
+    implements IBaseProvider<AutomobileModel>, IJsonProvider {
   /// Internal cache of automobile data items.
   List<AutomobileModel> _cachedList = [];
 
@@ -73,4 +78,11 @@ class AutomobileProvider implements IBaseProvider<AutomobileModel> {
   List<AutomobileModel> getItems([int total = 1]) {
     return _cachedList.getAppendList(total);
   }
+
+  /// Returns a list of raw JSON entries representing automobile data.
+  ///
+  /// This overrides the [IJsonProvider.rawJson] getter and retrieves data
+  /// from the static [AutomobileData.json] source.
+  @override
+  List<Map<String, dynamic>> get rawJson => AutomobileData.json;
 }

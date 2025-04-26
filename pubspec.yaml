@@ -1,6 +1,6 @@
 name: mockup
 description: Mockup provides ready-to-use mock data, text, and number generators to speed up UI development, testing, and prototyping.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/rohitsinghorg/mockup
 
 environment:
