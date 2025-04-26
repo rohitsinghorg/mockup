@@ -1,3 +1,4 @@
+import "package:mockup/src/base/json_provider.dart";
 import "package:mockup/src/data/emoji_data.dart";
 import "package:mockup/src/utils/extension.dart";
 
@@ -9,7 +10,10 @@ import "../model/emoji_model.dart";
 /// This class implements the [IBaseProvider] interface for [EmojiModel] objects
 /// and manages access to a collection of emoji data. It follows the singleton pattern
 /// to ensure a single instance is used throughout the application.
-class EmojiProvider implements IBaseProvider<EmojiModel> {
+///
+/// Also implements [IJsonProvider] to provide access to raw JSON data,
+/// useful for mocking APIs or testing.
+class EmojiProvider implements IBaseProvider<EmojiModel>, IJsonProvider {
   /// Internal cache of emoji data items.
   List<EmojiModel> _cachedList = [];
 
@@ -74,4 +78,11 @@ class EmojiProvider implements IBaseProvider<EmojiModel> {
   List<EmojiModel> getItems([int total = 1]) {
     return _cachedList.getAppendList(total);
   }
+
+  /// Returns a list of raw JSON entries representing automobile data.
+  ///
+  /// This overrides the [IJsonProvider.rawJson] getter and retrieves data
+  /// from the static [AutomobileData.json] source.
+  @override
+  List<Map<String, dynamic>> get rawJson => EmojiData.json;
 }

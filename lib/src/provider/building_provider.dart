@@ -1,3 +1,4 @@
+import "package:mockup/src/base/json_provider.dart";
 import "package:mockup/src/data/building_data.dart";
 import "package:mockup/src/utils/extension.dart";
 import "../base/base_provider.dart";
@@ -8,7 +9,10 @@ import "../model/building_model.dart";
 /// This class implements the [IBaseProvider] interface for [BuildingModel] objects
 /// and manages access to a collection of building data. It follows the singleton pattern
 /// to ensure a single instance is used throughout the application.
-class BuildingProvider implements IBaseProvider<BuildingModel> {
+///
+/// Also implements [IJsonProvider] to provide access to raw JSON data,
+/// useful for mocking APIs or testing.
+class BuildingProvider implements IBaseProvider<BuildingModel>, IJsonProvider {
   /// Internal cache of building data items.
   List<BuildingModel> _cachedList = [];
 
@@ -73,4 +77,11 @@ class BuildingProvider implements IBaseProvider<BuildingModel> {
   List<BuildingModel> getItems([int total = 1]) {
     return _cachedList.getAppendList(total);
   }
+
+  /// Returns a list of raw JSON entries representing automobile data.
+  ///
+  /// This overrides the [IJsonProvider.rawJson] getter and retrieves data
+  /// from the static [AutomobileData.json] source.
+  @override
+  List<Map<String, dynamic>> get rawJson => BuildingData.json;
 }

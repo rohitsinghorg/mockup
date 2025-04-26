@@ -1,3 +1,4 @@
+import "package:mockup/src/base/json_provider.dart";
 import "package:mockup/src/data/flower_data.dart";
 import "package:mockup/src/utils/extension.dart";
 
@@ -9,7 +10,10 @@ import "../model/flower_model.dart";
 /// This class implements the [IBaseProvider] interface for [FlowerModel] objects
 /// and manages access to a collection of flower data. It follows the singleton pattern
 /// to ensure a single instance is used throughout the application.
-class FlowerProvider implements IBaseProvider<FlowerModel> {
+///
+/// Also implements [IJsonProvider] to provide access to raw JSON data,
+/// useful for mocking APIs or testing.
+class FlowerProvider implements IBaseProvider<FlowerModel>, IJsonProvider {
   /// Internal cache of flower data items.
   List<FlowerModel> _cachedList = [];
 
@@ -74,4 +78,11 @@ class FlowerProvider implements IBaseProvider<FlowerModel> {
   List<FlowerModel> getItems([int total = 1]) {
     return _cachedList.getAppendList(total);
   }
+
+  /// Returns a list of raw JSON entries representing automobile data.
+  ///
+  /// This overrides the [IJsonProvider.rawJson] getter and retrieves data
+  /// from the static [AutomobileData.json] source.
+  @override
+  List<Map<String, dynamic>> get rawJson => FlowerData.json;
 }

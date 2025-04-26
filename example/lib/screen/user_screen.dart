@@ -15,6 +15,7 @@ class _UserScreenState extends State<UserScreen> {
   List<UserModel> refreshUserList = Mockup.user.getShuffledList();
   UserModel userItem = Mockup.user.getItemAt(5);
   UserModel refreshUserItem = Mockup.user.getRandomItem();
+  var json = Mockup.user.rawJson;
 
   @override
   Widget build(BuildContext context) {

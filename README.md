@@ -1,22 +1,26 @@
+![Pub Version](https://img.shields.io/pub/v/mockup)
+![Likes](https://img.shields.io/pub/likes/mockup)
+![Platforms](https://img.shields.io/badge/platforms-Android%20iOS%20Linux%20macOS%20web%20Windows-blue)
+![License](https://img.shields.io/badge/license-MIT-blue)
+
 # 📦 Mockup
 
-Mockup helps developers quickly generate and use predefined mock data for various categories like automobiles, buildings, emojis, and more. It’s designed to boost your development speed, especially when you're working on UI, testing, or prototyping without an actual backend.
+Mockup is a Flutter package that provides ready-to-use mock data generators for rapid UI development, testing, and prototyping.
 
 ### 🚀 Why Use Mockup?
 
-- ✅ Ready-to-use Models – Includes a wide range of predefined POJOs to get you started instantly.
-- 🔌 Bridge the API Gap – Perfect for filling in while your backend is under development.
-- 🧪 Fast Prototyping – Showcase your UI and features without waiting for real data.
-- ⚡ Boost Productivity – Focus more on building features, not faking data every time.
-- 🎯 Developer-Friendly – Simple to integrate and easy to extend.
+- ✅ Ready-to-use models for various categories
+- ⚡ Fast prototyping without backend dependencies
+- 🧪 Ideal for UI testing and development
+- 🛠️ Simple integration and easy to extend
 
 ## 🚀 Installation
 
-Add mockup to your project by including it in your pubspec.yaml file:
+Add `mockup` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  mockup: ^1.0.0
+  mockup: ^1.0.1
 ```
 
 Or use the command line for quick setup:
@@ -46,6 +50,7 @@ EmojiModel randomEmoji = Mockup.emoji.getRandomItem();
 
 // Flowers
 List<FlowerModel> flowers = Mockup.flower.getAll();
+var json = Mockup.flower.rawJson;
 
 // Quotes
 QuoteModel quoteOfTheDay = Mockup.quote.getRandomItem();
@@ -73,8 +78,10 @@ Returns the item at the specified index. Index wraps around if it's out of bound
 - `getRandomItem()`
 Returns a single, randomly selected item.
 
+- `rawJson`
+Returns a list of raw JSON.
 
-### ✍️ Text Generation
+### ✍️ Text Generation Utilities
 
 `Mockup.text` provides utilities to generate random alphanumeric strings, sentences, and paragraphs—perfect for filling in placeholder content during UI development or testing.
 
@@ -114,7 +121,7 @@ Returns medium-sized paragraphs with a moderate number of sentences.
 - `generateLongParagraph([int numberOfParagraph = 1])`
 Returns long paragraphs composed of a larger number of sentences.
 
-### 🔢 Number Generation
+### 🔢 Number Generation Utilities
 
 `Mockup.number` provides utilities for generating random numeric values and formatted strings in various number systems—decimal, binary, hexadecimal, octal—as well as random IP addresses. It’s great for testing inputs, generating placeholder data, or simulating system-level values.
 

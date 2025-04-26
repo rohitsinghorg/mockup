@@ -15,6 +15,7 @@ class _EmojiScreenState extends State<EmojiScreen> {
   List<EmojiModel> refreshEmojiList = Mockup.emoji.getShuffledList();
   EmojiModel emojiItem = Mockup.emoji.getItemAt(5);
   EmojiModel refreshEmojiItem = Mockup.emoji.getRandomItem();
+  var json = Mockup.emoji.rawJson;
 
   @override
   Widget build(BuildContext context) {

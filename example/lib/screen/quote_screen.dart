@@ -15,6 +15,7 @@ class _QuoteScreenState extends State<QuoteScreen> {
   List<QuoteModel> refreshQuoteList = Mockup.quote.getShuffledList();
   QuoteModel quoteItem = Mockup.quote.getItemAt(5);
   QuoteModel refreshQuoteItem = Mockup.quote.getRandomItem();
+  var json = Mockup.quote.rawJson;
 
   @override
   Widget build(BuildContext context) {

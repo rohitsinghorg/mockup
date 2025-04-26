@@ -16,6 +16,7 @@ class _BuildingScreenState extends State<BuildingScreen> {
   List<BuildingModel> refreshBuildingList = Mockup.building.getShuffledList();
   BuildingModel buildingItem = Mockup.building.getItemAt(5);
   BuildingModel refreshBuildingItem = Mockup.building.getRandomItem();
+  var json = Mockup.building.rawJson;
 
   @override
   Widget build(BuildContext context) {
