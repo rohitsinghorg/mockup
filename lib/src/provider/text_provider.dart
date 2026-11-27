@@ -1,6 +1,5 @@
-import "dart:math";
-import "package:mockup/src/utils/extension.dart";
 import "../data/text_data.dart";
+import "../utils/extension.dart";
 
 /// Provider for generating random text content.
 ///
@@ -25,33 +24,69 @@ class TextProvider {
   ///
   /// Returns a string containing a random selection of uppercase letters,
   /// lowercase letters, and digits from the [rawData] constant.
-  String get randomAlphanumeric =>
-      List.generate(10, (index) => rawData[Random().nextInt(62)]).join();
+  String get randomAlphanumeric => alphanumeric();
+
+  /// Generates a random alphanumeric string of [length] characters
+  /// (A–Z, a–z, 0–9).
+  ///
+  /// Throws a [RangeError] if [length] is negative.
+  String alphanumeric([int length = 10]) {
+    RangeError.checkNotNegative(length, "length");
+    return List.generate(
+        length, (_) => rawData[mockupRandom.nextInt(rawData.length)]).join();
+  }
+
+  List<String> _randomWords(int count) {
+    RangeError.checkNotNegative(count, "count");
+    return List.generate(count, (_) => textData.random());
+  }
+
+  /// Returns [count] random lowercase words separated by spaces.
+  ///
+  /// ```dart
+  /// Mockup.text.words(3); // "dolor amet tempus"
+  /// ```
+  String words([int count = 1]) => _randomWords(count).join(" ");
+
+  /// Returns a title of [wordCount] random words in Title Case.
+  ///
+  /// ```dart
+  /// Mockup.text.title(); // "Sapien Dolor Magna"
+  /// ```
+  String title([int wordCount = 3]) => _randomWords(wordCount)
+      .map((w) => "${w[0].toUpperCase()}${w.substring(1)}")
+      .join(" ");
+
+  /// Returns a URL-friendly slug of [wordCount] random words.
+  ///
+  /// ```dart
+  /// Mockup.text.slug(); // "sapien-dolor-magna"
+  /// ```
+  String slug([int wordCount = 3]) => _randomWords(wordCount).join("-");
 
   ///
   /// The private method [_makeSentence] is used to generate a sentence
   /// [minLength] and [maxLength] params is used to define the sentence length
   ///
   String _makeSentence([int minLength = _medium, int maxLength = _xLarge]) {
-    final int sentenceLength = Random().numberBetween(minLength, maxLength);
+    final int sentenceLength = mockupRandom.numberBetween(minLength, maxLength);
     final int wordIndex =
-        Random().numberBetween(0, textData.length - sentenceLength - 1);
+        mockupRandom.numberBetween(0, textData.length - sentenceLength - 1);
     final String sentence =
         textData.getRange(wordIndex, wordIndex + sentenceLength).join(" ");
-    final String sentenceWithCapitalAndPeriod =
-        sentence[0].toUpperCase() + sentence.substring(1) + ". ";
-    return sentenceWithCapitalAndPeriod;
+    return "${sentence[0].toUpperCase()}${sentence.substring(1)}. ";
   }
 
   ///
   /// The private method [_makeParagraph] is used to define a paragraph.
   String _makeParagraph(
       int numberOfParagraph, int minSentenceLength, int maxSentenceLength) {
+    RangeError.checkNotNegative(numberOfParagraph, "numberOfParagraph");
     return List.generate(
             numberOfParagraph,
             (index) => generateSentences(
-                numberOfSentence: Random()
-                    .numberBetween(minSentenceLength, maxSentenceLength)))
+                numberOfSentence: mockupRandom.numberBetween(
+                    minSentenceLength, maxSentenceLength)))
         .toList()
         .join("\n")
         .trimRight();
@@ -66,7 +101,9 @@ class TextProvider {
   /// - [numberOfSentence]: The number of sentences to generate (default: 1)
   ///
   /// Returns a string containing the generated sentences joined together.
+  /// Throws a [RangeError] if [numberOfSentence] is negative.
   String generateSentences({int numberOfSentence = 1}) {
+    RangeError.checkNotNegative(numberOfSentence, "numberOfSentence");
     return List.generate(numberOfSentence, (index) => _makeSentence())
         .toList()
         .join()
@@ -82,6 +119,7 @@ class TextProvider {
   /// - [numberOfParagraph]: The number of paragraphs to generate (default: 1)
   ///
   /// Returns a string containing the generated paragraphs joined together.
+  /// Throws a [RangeError] if [numberOfParagraph] is negative.
   String generateShortParagraph([int numberOfParagraph = 1]) {
     return _makeParagraph(numberOfParagraph, _short, _medium);
   }
@@ -95,6 +133,7 @@ class TextProvider {
   /// - [numberOfParagraph]: The number of paragraphs to generate (default: 1)
   ///
   /// Returns a string containing the generated paragraphs joined together.
+  /// Throws a [RangeError] if [numberOfParagraph] is negative.
   String generateMediumParagraph([int numberOfParagraph = 1]) {
     return _makeParagraph(numberOfParagraph, _medium, _large);
   }
@@ -108,6 +147,7 @@ class TextProvider {
   /// - [numberOfParagraph]: The number of paragraphs to generate (default: 1)
   ///
   /// Returns a string containing the generated paragraphs joined together.
+  /// Throws a [RangeError] if [numberOfParagraph] is negative.
   String generateLongParagraph([int numberOfParagraph = 1]) {
     return _makeParagraph(numberOfParagraph, _large, _xLarge);
   }

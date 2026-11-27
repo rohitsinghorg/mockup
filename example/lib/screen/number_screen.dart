@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mockup/mockup.dart';
 
 class NumberScreen extends StatefulWidget {
@@ -33,63 +33,56 @@ class _NumberScreenState extends State<NumberScreen> {
             SizedBox(height: 20),
             Text(
               "Random 3 Digit Number is:",
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
             SizedBox(height: 10),
             Text("$random3DigitNumber"),
             SizedBox(height: 20),
             Text(
               "Random 5-Digit Binary are:",
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
             SizedBox(height: 10),
             Text(random5DigitBinary),
             SizedBox(height: 20),
             Text(
               "Random 5-Digit Decimal are:",
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
             SizedBox(height: 10),
             Text(random5DigitDecimal),
             SizedBox(height: 20),
             Text(
               "Random 5-Digit Hexadecimal are:",
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
             SizedBox(height: 10),
             Text(random5DigitHexadecimal),
             SizedBox(height: 20),
             Text(
               "Random 5-Digit Octal are:",
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
             SizedBox(height: 10),
             Text(random5DigitOctal),
             SizedBox(height: 20),
             Text(
               "Random IPv4:",
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
             SizedBox(height: 10),
             Text(randomIPv4),
             SizedBox(height: 20),
             Text(
               "Random IPv6:",
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
             SizedBox(height: 10),
             Text(randomIPv6),

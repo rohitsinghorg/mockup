@@ -1,5 +1,13 @@
 import "dart:math";
 
+import "../config.dart";
+
+/// The shared random number generator used by all providers.
+///
+/// Always read through this getter (never cache it) so that [Mockup.seed]
+/// takes effect immediately.
+Random get mockupRandom => MockupConfig.random;
+
 ///
 /// [ListExtended] extension is used to add the additional
 /// functionalities in the existing list.
@@ -9,25 +17,19 @@ import "dart:math";
 /// [getAppendList] function will append the list one after another to give the
 /// unlimited data to the users.
 ///
-/// [unique] function will remove the duplicate items in the list
-///
-
 extension ListExtended<T> on List<T> {
+  /// Returns a random element of this list.
   T random() {
-    return this[Random().nextInt(length)];
+    return this[mockupRandom.nextInt(length)];
   }
 
+  /// Returns a list of [max] elements, cycling through this list from the
+  /// start when [max] exceeds its length.
+  ///
+  /// Throws a [RangeError] if [max] is negative.
   List<T> getAppendList([int max = 1]) {
-    return List.generate(max, (index) => this[index % length]).toList();
-  }
-
-  List<T> unique() {
-    return toSet().toList();
-  }
-
-  Future<List> withDelay({int seconds = 1}) async {
-    await Future.delayed(Duration(seconds: seconds));
-    return this;
+    RangeError.checkNotNegative(max, "count");
+    return List.generate(max, (index) => this[index % length]);
   }
 }
 
@@ -35,12 +37,32 @@ extension ListExtended<T> on List<T> {
 /// [RandomExtended] extension will add additional functionality in the Random
 /// class.
 ///
-/// [numberBetween] function will generate a random between two values. Example:
-/// randomBetween(5, 9) will generate a random number between 5 to 9.
+/// [numberBetween] function will generate a random number between two values,
+/// inclusive. Example: numberBetween(5, 9) will generate a random number from
+/// 5 to 9.
 ///
-
 extension RandomExtended on Random {
+  /// Returns a random integer between [min] and [max], both inclusive.
+  ///
+  /// Throws an [ArgumentError] if [min] is greater than [max].
   int numberBetween([int min = 0, int max = 9999]) {
-    return Random().nextInt((max - min) + 1) + min;
+    if (min > max) {
+      throw ArgumentError(
+          "min ($min) must be less than or equal to max ($max)");
+    }
+    return nextInt((max - min) + 1) + min;
   }
 }
+
+/// Compares two nullable lists element by element.
+bool listEquals<T>(List<T>? a, List<T>? b) {
+  if (identical(a, b)) return true;
+  if (a == null || b == null || a.length != b.length) return false;
+  for (var i = 0; i < a.length; i++) {
+    if (a[i] != b[i]) return false;
+  }
+  return true;
+}
+
+/// Hash code for a nullable list, consistent with [listEquals].
+int listHash<T>(List<T>? list) => list == null ? 0 : Object.hashAll(list);

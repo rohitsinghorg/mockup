@@ -7,9 +7,12 @@ linter:
     always_declare_return_types: true
     prefer_final_locals: true
     prefer_double_quotes: true
+    public_member_api_docs: true
 
 analyzer:
   errors:
     # You can set specific rules to be warnings or errors
     avoid_print: warning
     unnecessary_string_escapes: error
+  exclude:
+    - build/**

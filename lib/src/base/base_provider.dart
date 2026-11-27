@@ -21,7 +21,7 @@ abstract interface class IBaseProvider<T> {
   /// the returned list may contain duplicate items.
   ///
   /// By default, returns a list with a single item.
-  List<T> getItems(int count);
+  List<T> getItems([int count = 1]);
 
   /// Returns a random mock data item from the available collection.
   T getRandomItem();
