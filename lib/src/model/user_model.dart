@@ -3,47 +3,51 @@
 /// Contains personal information, contact details, demographics,
 /// and address information.
 class UserModel {
-  /// Title or prefix for the user's name (e.g., "Mr.", "Dr.").
-  String? prefix;
+  /// Title or prefix for the user's name: "Mr.", "Ms.", "Mrs." or "Dr.".
+  final String? prefix;
 
   /// User's first name.
-  String? firstName;
+  final String? firstName;
 
   /// User's last name.
-  String? lastName;
+  final String? lastName;
 
   /// User's nickname or preferred name.
-  String? nickName;
+  final String? nickName;
 
-  /// Gender of the user (e.g., "Male", "Female", "Other").
-  String? gender;
+  /// Gender of the user ("Male" or "Female").
+  final String? gender;
 
-  /// URL or path to the user's profile image.
-  String? image;
+  /// URL of the user's profile photo.
+  ///
+  /// Photos are hosted on randomuser.me, so displaying them requires a
+  /// network connection.
+  final String? image;
 
   /// Email address of the user.
-  String? email;
+  final String? email;
 
   /// Age of the user.
-  int? age;
+  final int? age;
 
   /// Mobile phone number of the user.
-  String? mobile;
+  final String? mobile;
 
   /// Address details of the user.
-  Address? address;
+  final Address? address;
 
   /// Occupation or job title of the user.
-  String? occupation;
+  final String? occupation;
 
-  /// Marital status of the user (e.g., "Single", "Married").
-  String? maritalStatus;
+  /// Marital status of the user: "Single", "Married", "Divorced" or
+  /// "Widowed".
+  final String? maritalStatus;
 
   /// Education level or degree of the user.
-  String? education;
+  final String? education;
 
   /// Creates a [UserModel] instance with the provided properties.
-  UserModel({
+  const UserModel({
     this.prefix,
     this.firstName,
     this.lastName,
@@ -61,12 +65,13 @@ class UserModel {
 
   /// Creates a [UserModel] from a JSON map.
   ///
-  /// This includes deserializing the nested [Address] object.
+  /// This includes deserializing the nested [Address] object. JSON keys use
+  /// snake_case (e.g., "first_name") while the Dart properties use camelCase.
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
         prefix: json["prefix"],
-        firstName: json["firstName"],
-        lastName: json["lastName"],
-        nickName: json["nickName"],
+        firstName: json["first_name"],
+        lastName: json["last_name"],
+        nickName: json["nick_name"],
         gender: json["gender"],
         image: json["image"],
         email: json["email"],
@@ -75,18 +80,19 @@ class UserModel {
         address:
             json["address"] == null ? null : Address.fromJson(json["address"]),
         occupation: json["occupation"],
-        maritalStatus: json["maritalStatus"],
+        maritalStatus: json["marital_status"],
         education: json["education"],
       );
 
   /// Converts this [UserModel] to a JSON map.
   ///
-  /// Includes all properties, with [address] serialized using its [toJson] method.
+  /// Includes all properties, with [address] serialized using its [toJson]
+  /// method. Keys use snake_case.
   Map<String, dynamic> toJson() => {
         "prefix": prefix,
-        "firstName": firstName,
-        "lastName": lastName,
-        "nickName": nickName,
+        "first_name": firstName,
+        "last_name": lastName,
+        "nick_name": nickName,
         "gender": gender,
         "image": image,
         "email": email,
@@ -94,9 +100,80 @@ class UserModel {
         "mobile": mobile,
         "address": address?.toJson(),
         "occupation": occupation,
-        "maritalStatus": maritalStatus,
+        "marital_status": maritalStatus,
         "education": education,
       };
+
+  /// Returns a copy of this [UserModel] with the given fields replaced.
+  UserModel copyWith({
+    String? prefix,
+    String? firstName,
+    String? lastName,
+    String? nickName,
+    String? gender,
+    String? image,
+    String? email,
+    int? age,
+    String? mobile,
+    Address? address,
+    String? occupation,
+    String? maritalStatus,
+    String? education,
+  }) =>
+      UserModel(
+        prefix: prefix ?? this.prefix,
+        firstName: firstName ?? this.firstName,
+        lastName: lastName ?? this.lastName,
+        nickName: nickName ?? this.nickName,
+        gender: gender ?? this.gender,
+        image: image ?? this.image,
+        email: email ?? this.email,
+        age: age ?? this.age,
+        mobile: mobile ?? this.mobile,
+        address: address ?? this.address,
+        occupation: occupation ?? this.occupation,
+        maritalStatus: maritalStatus ?? this.maritalStatus,
+        education: education ?? this.education,
+      );
+
+  @override
+  String toString() =>
+      "UserModel(prefix: $prefix, firstName: $firstName, lastName: $lastName, nickName: $nickName, gender: $gender, image: $image, email: $email, age: $age, mobile: $mobile, address: $address, occupation: $occupation, maritalStatus: $maritalStatus, education: $education)";
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is UserModel &&
+          other.prefix == prefix &&
+          other.firstName == firstName &&
+          other.lastName == lastName &&
+          other.nickName == nickName &&
+          other.gender == gender &&
+          other.image == image &&
+          other.email == email &&
+          other.age == age &&
+          other.mobile == mobile &&
+          other.address == address &&
+          other.occupation == occupation &&
+          other.maritalStatus == maritalStatus &&
+          other.education == education;
+
+  @override
+  int get hashCode => Object.hash(
+        prefix,
+        firstName,
+        lastName,
+        nickName,
+        gender,
+        image,
+        email,
+        age,
+        mobile,
+        address,
+        occupation,
+        maritalStatus,
+        education,
+      );
 }
 
 /// Model representing an address.
@@ -104,34 +181,34 @@ class UserModel {
 /// Contains geographical and mailing address information.
 class Address {
   /// First line of the street address.
-  String? addressLine1;
+  final String? addressLine1;
 
   /// Second line of the street address (e.g., apartment or suite number).
-  String? addressLine2;
+  final String? addressLine2;
 
   /// City of residence.
-  String? city;
+  final String? city;
 
   /// Locality or neighborhood name.
-  String? locality;
+  final String? locality;
 
   /// State or province.
-  String? state;
+  final String? state;
 
   /// Country name.
-  String? country;
+  final String? country;
 
   /// ZIP or postal code.
-  String? zipCode;
+  final String? zipCode;
 
   /// Latitude coordinate of the location.
-  double? latitude;
+  final double? latitude;
 
   /// Longitude coordinate of the location.
-  double? longitude;
+  final double? longitude;
 
   /// Creates an [Address] instance with the provided properties.
-  Address({
+  const Address({
     this.addressLine1,
     this.addressLine2,
     this.city,
@@ -145,31 +222,87 @@ class Address {
 
   /// Creates an [Address] from a JSON map.
   ///
-  /// All fields are deserialized from matching JSON keys.
+  /// JSON keys use snake_case (e.g., "zip_code") while the Dart properties
+  /// use camelCase (e.g., zipCode).
   factory Address.fromJson(Map<String, dynamic> json) => Address(
-        addressLine1: json["addressLine1"],
-        addressLine2: json["addressLine2"],
+        addressLine1: json["address_line1"],
+        addressLine2: json["address_line2"],
         city: json["city"],
         locality: json["locality"],
         state: json["state"],
         country: json["country"],
-        zipCode: json["zipCode"],
+        zipCode: json["zip_code"],
         latitude: json["latitude"]?.toDouble(),
         longitude: json["longitude"]?.toDouble(),
       );
 
   /// Converts this [Address] instance to a JSON map.
   ///
-  /// All properties are included.
+  /// All properties are included, with snake_case keys.
   Map<String, dynamic> toJson() => {
-        "addressLine1": addressLine1,
-        "addressLine2": addressLine2,
+        "address_line1": addressLine1,
+        "address_line2": addressLine2,
         "city": city,
         "locality": locality,
         "state": state,
         "country": country,
-        "zipCode": zipCode,
+        "zip_code": zipCode,
         "latitude": latitude,
         "longitude": longitude,
       };
+
+  /// Returns a copy of this [Address] with the given fields replaced.
+  Address copyWith({
+    String? addressLine1,
+    String? addressLine2,
+    String? city,
+    String? locality,
+    String? state,
+    String? country,
+    String? zipCode,
+    double? latitude,
+    double? longitude,
+  }) =>
+      Address(
+        addressLine1: addressLine1 ?? this.addressLine1,
+        addressLine2: addressLine2 ?? this.addressLine2,
+        city: city ?? this.city,
+        locality: locality ?? this.locality,
+        state: state ?? this.state,
+        country: country ?? this.country,
+        zipCode: zipCode ?? this.zipCode,
+        latitude: latitude ?? this.latitude,
+        longitude: longitude ?? this.longitude,
+      );
+
+  @override
+  String toString() =>
+      "Address(addressLine1: $addressLine1, addressLine2: $addressLine2, city: $city, locality: $locality, state: $state, country: $country, zipCode: $zipCode, latitude: $latitude, longitude: $longitude)";
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Address &&
+          other.addressLine1 == addressLine1 &&
+          other.addressLine2 == addressLine2 &&
+          other.city == city &&
+          other.locality == locality &&
+          other.state == state &&
+          other.country == country &&
+          other.zipCode == zipCode &&
+          other.latitude == latitude &&
+          other.longitude == longitude;
+
+  @override
+  int get hashCode => Object.hash(
+        addressLine1,
+        addressLine2,
+        city,
+        locality,
+        state,
+        country,
+        zipCode,
+        latitude,
+        longitude,
+      );
 }

@@ -1,0 +1,27 @@
+# Publishes to pub.dev when a version tag (e.g. v1.1.0) is pushed.
+#
+# One-time setup on pub.dev: Admin tab -> Automated publishing ->
+# enable "Publishing from GitHub Actions", repository
+# rohitsinghorg/mockup, tag pattern "v{{version}}".
+name: Publish to pub.dev
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # required for pub.dev OIDC authentication
+    steps:
+      - uses: actions/checkout@v4
+      # setup-dart configures the pub.dev OIDC token used by `flutter pub publish`.
+      - uses: dart-lang/setup-dart@v1
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter pub get
+      - run: flutter test
+      - run: flutter pub publish --force

@@ -1,7 +1,27 @@
 name: mockup
-description: Generate mock data for Flutter UI development, testing, and prototyping—without any API dependencies.
-version: 1.0.2
-homepage: https://github.com/rohitsinghorg/mockup
+description: "Typed mock data for Flutter UIs and tests: users, quotes, cars, emoji & more, with a simulated API (latency, pagination, errors) and seedable output."
+version: 2.0.0
+repository: https://github.com/rohitsinghorg/mockup
+issue_tracker: https://github.com/rohitsinghorg/mockup/issues
+
+screenshots:
+  - description: "Example app home screen listing every mock data category."
+    path: screenshots/main.webp
+  - description: "Automobile mock data rendered as a list of cards."
+    path: screenshots/automobile.webp
+  - description: "Flower mock data with names, colors and descriptions."
+    path: screenshots/flower.webp
+  - description: "Random numbers, number strings and IP addresses."
+    path: screenshots/number.webp
+  - description: "Generated placeholder sentences and paragraphs."
+    path: screenshots/text.webp
+
+topics:
+  - mock
+  - fake-data
+  - testing
+  - prototype
+  - placeholder
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

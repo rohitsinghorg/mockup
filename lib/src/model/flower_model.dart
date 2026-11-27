@@ -1,52 +1,54 @@
+import "../utils/extension.dart";
+
 /// Model representing flower data.
 ///
 /// This class encapsulates all the properties of a flower and provides
 /// methods for serialization to and from JSON.
 class FlowerModel {
   /// Unique identifier for the flower.
-  String? id;
+  final String? id;
 
   /// Widely recognized name of the flower.
-  String? commonName;
+  final String? commonName;
 
   /// Taxonomic name of the flower.
-  String? scientificName;
+  final String? scientificName;
 
   /// Available color variations of the flower.
-  List<String>? colors;
+  final List<String>? colors;
 
   /// Period when the flower normally blooms.
-  String? bloomingSeason;
+  final String? bloomingSeason;
 
   /// Cultural meanings associated with the flower.
-  List<String>? symbolism;
+  final List<String>? symbolism;
 
   /// Geographical areas where the flower naturally occurs.
-  String? nativeRegion;
+  final String? nativeRegion;
 
   /// Whether the flower has a scent.
-  bool? fragrance;
+  final bool? fragrance;
 
   /// Amount of sunlight needed for optimal growth.
-  String? sunRequirements;
+  final String? sunRequirements;
 
   /// Water needs for proper cultivation.
-  String? waterRequirements;
+  final String? waterRequirements;
 
-  /// Classification of the plant (e.g., "Perennial", "Annual").
-  String? plantType;
+  /// Classification of the plant: "Perennial", "Annual" or "Deciduous Shrub".
+  final String? plantType;
 
-  /// Approximate cost per plant.
-  double? price;
+  /// Approximate cost per plant (no currency is specified).
+  final double? price;
 
   /// Brief overview of the flower.
-  String? shortDescription;
+  final String? shortDescription;
 
   /// Detailed information about the flower.
-  String? description;
+  final String? description;
 
   /// Creates a [FlowerModel] instance with the provided properties.
-  FlowerModel({
+  const FlowerModel({
     this.id,
     this.commonName,
     this.scientificName,
@@ -111,4 +113,79 @@ class FlowerModel {
         "short_description": shortDescription,
         "description": description,
       };
+
+  /// Returns a copy of this [FlowerModel] with the given fields replaced.
+  FlowerModel copyWith({
+    String? id,
+    String? commonName,
+    String? scientificName,
+    List<String>? colors,
+    String? bloomingSeason,
+    List<String>? symbolism,
+    String? nativeRegion,
+    bool? fragrance,
+    String? sunRequirements,
+    String? waterRequirements,
+    String? plantType,
+    double? price,
+    String? shortDescription,
+    String? description,
+  }) =>
+      FlowerModel(
+        id: id ?? this.id,
+        commonName: commonName ?? this.commonName,
+        scientificName: scientificName ?? this.scientificName,
+        colors: colors ?? this.colors,
+        bloomingSeason: bloomingSeason ?? this.bloomingSeason,
+        symbolism: symbolism ?? this.symbolism,
+        nativeRegion: nativeRegion ?? this.nativeRegion,
+        fragrance: fragrance ?? this.fragrance,
+        sunRequirements: sunRequirements ?? this.sunRequirements,
+        waterRequirements: waterRequirements ?? this.waterRequirements,
+        plantType: plantType ?? this.plantType,
+        price: price ?? this.price,
+        shortDescription: shortDescription ?? this.shortDescription,
+        description: description ?? this.description,
+      );
+
+  @override
+  String toString() =>
+      "FlowerModel(id: $id, commonName: $commonName, scientificName: $scientificName, colors: $colors, bloomingSeason: $bloomingSeason, symbolism: $symbolism, nativeRegion: $nativeRegion, fragrance: $fragrance, sunRequirements: $sunRequirements, waterRequirements: $waterRequirements, plantType: $plantType, price: $price, shortDescription: $shortDescription, description: $description)";
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is FlowerModel &&
+          other.id == id &&
+          other.commonName == commonName &&
+          other.scientificName == scientificName &&
+          listEquals(other.colors, colors) &&
+          other.bloomingSeason == bloomingSeason &&
+          listEquals(other.symbolism, symbolism) &&
+          other.nativeRegion == nativeRegion &&
+          other.fragrance == fragrance &&
+          other.sunRequirements == sunRequirements &&
+          other.waterRequirements == waterRequirements &&
+          other.plantType == plantType &&
+          other.price == price &&
+          other.shortDescription == shortDescription &&
+          other.description == description;
+
+  @override
+  int get hashCode => Object.hash(
+        id,
+        commonName,
+        scientificName,
+        listHash(colors),
+        bloomingSeason,
+        listHash(symbolism),
+        nativeRegion,
+        fragrance,
+        sunRequirements,
+        waterRequirements,
+        plantType,
+        price,
+        shortDescription,
+        description,
+      );
 }

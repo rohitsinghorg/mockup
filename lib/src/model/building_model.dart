@@ -1,46 +1,48 @@
+import "../utils/extension.dart";
+
 /// Model representing building data.
 ///
 /// This class encapsulates all the properties of a building and provides
 /// methods for serialization to and from JSON.
 class BuildingModel {
   /// Unique identifier for the building.
-  String? id;
+  final String? id;
 
   /// Name of the building.
-  String? name;
+  final String? name;
 
   /// Geographical location of the building.
-  String? location;
+  final String? location;
 
   /// Year when the building was constructed.
-  int? yearBuilt;
+  final int? yearBuilt;
 
   /// Number of floors in the building.
-  int? floors;
+  final int? floors;
 
   /// Total area of the building in square meters.
-  double? areaSqm;
+  final double? areaSqm;
 
-  /// Category of the building (e.g., "Commercial", "Residential").
-  String? buildingType;
+  /// Category of the building (e.g., "Commercial", "Museum", "Monument").
+  final String? buildingType;
 
   /// Indicates whether the building has parking facilities.
-  bool? hasParking;
+  final bool? hasParking;
 
   /// Name of the architect or firm that designed the building.
-  String? architect;
+  final String? architect;
 
   /// Height of the building in meters.
-  double? elevation;
+  final double? elevation;
 
   /// Detailed description of the building.
-  String? description;
+  final String? description;
 
   /// List of amenities and facilities available in the building.
-  List<String>? facilities;
+  final List<String>? facilities;
 
   /// Creates a [BuildingModel] instance with the provided properties.
-  BuildingModel({
+  const BuildingModel({
     this.id,
     this.name,
     this.location,
@@ -65,7 +67,7 @@ class BuildingModel {
         location: json["location"],
         yearBuilt: json["year_built"],
         floors: json["floors"],
-        areaSqm: json["area_sqm"],
+        areaSqm: json["area_sqm"]?.toDouble(),
         buildingType: json["building_type"],
         hasParking: json["has_parking"],
         architect: json["architect"],
@@ -96,4 +98,71 @@ class BuildingModel {
             ? []
             : List<dynamic>.from(facilities!.map((x) => x)),
       };
+
+  /// Returns a copy of this [BuildingModel] with the given fields replaced.
+  BuildingModel copyWith({
+    String? id,
+    String? name,
+    String? location,
+    int? yearBuilt,
+    int? floors,
+    double? areaSqm,
+    String? buildingType,
+    bool? hasParking,
+    String? architect,
+    double? elevation,
+    String? description,
+    List<String>? facilities,
+  }) =>
+      BuildingModel(
+        id: id ?? this.id,
+        name: name ?? this.name,
+        location: location ?? this.location,
+        yearBuilt: yearBuilt ?? this.yearBuilt,
+        floors: floors ?? this.floors,
+        areaSqm: areaSqm ?? this.areaSqm,
+        buildingType: buildingType ?? this.buildingType,
+        hasParking: hasParking ?? this.hasParking,
+        architect: architect ?? this.architect,
+        elevation: elevation ?? this.elevation,
+        description: description ?? this.description,
+        facilities: facilities ?? this.facilities,
+      );
+
+  @override
+  String toString() =>
+      "BuildingModel(id: $id, name: $name, location: $location, yearBuilt: $yearBuilt, floors: $floors, areaSqm: $areaSqm, buildingType: $buildingType, hasParking: $hasParking, architect: $architect, elevation: $elevation, description: $description, facilities: $facilities)";
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BuildingModel &&
+          other.id == id &&
+          other.name == name &&
+          other.location == location &&
+          other.yearBuilt == yearBuilt &&
+          other.floors == floors &&
+          other.areaSqm == areaSqm &&
+          other.buildingType == buildingType &&
+          other.hasParking == hasParking &&
+          other.architect == architect &&
+          other.elevation == elevation &&
+          other.description == description &&
+          listEquals(other.facilities, facilities);
+
+  @override
+  int get hashCode => Object.hash(
+        id,
+        name,
+        location,
+        yearBuilt,
+        floors,
+        areaSqm,
+        buildingType,
+        hasParking,
+        architect,
+        elevation,
+        description,
+        listHash(facilities),
+      );
 }

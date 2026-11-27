@@ -8,6 +8,7 @@ class FlowerData {
   /// Raw JSON data containing flower information.
   static const json = [
     {
+      "id": "2dc9dfb3",
       "common_name": "Rose",
       "scientific_name": "Rosa",
       "colors": ["Red", "White", "Pink", "Yellow", "Orange"],
@@ -25,6 +26,7 @@ class FlowerData {
           "Roses, belonging to the genus Rosa, have been cultivated for thousands of years, appearing in gardens, literature, and rituals worldwide. With over 300 species and thousands of cultivars, they come in nearly every color and form. Red roses symbolize romance, while other colors represent friendship, purity, or remembrance. Most varieties thrive in full sun and require moderate watering and good air circulation to avoid fungal diseases."
     },
     {
+      "id": "3ba3d743",
       "common_name": "Tulip",
       "scientific_name": "Tulipa",
       "colors": ["Red", "Yellow", "Pink", "White", "Purple"],
@@ -42,6 +44,7 @@ class FlowerData {
           "Tulips, native to Central Asia and Turkey, became a global phenomenon after their introduction to Europe. They prefer well-drained soil and full sun, blooming for a few weeks in early to mid-spring. Tulips are often grown from bulbs planted in the fall."
     },
     {
+      "id": "fa902ad1",
       "common_name": "Sunflower",
       "scientific_name": "Helianthus annuus",
       "colors": ["Yellow", "Orange", "Red"],
@@ -59,6 +62,7 @@ class FlowerData {
           "Sunflowers are annual plants native to North America, best known for their heliotropic behavior—young sunflowers tilt during the day to face the sun. They are cultivated for sunflower oil, edible seeds, and wildlife attraction. They require full sunlight and well-drained soil to thrive."
     },
     {
+      "id": "e642fbe2",
       "common_name": "Daffodil",
       "scientific_name": "Narcissus",
       "colors": ["Yellow", "White", "Orange"],
@@ -76,6 +80,7 @@ class FlowerData {
           "Daffodils, belonging to the genus Narcissus, are among the first flowers to bloom in spring. Native to Europe and North Africa, they are often associated with renewal and new beginnings. Daffodils prefer full sun to partial shade and moderate watering."
     },
     {
+      "id": "6b18bc8e",
       "common_name": "Lily",
       "scientific_name": "Lilium",
       "colors": ["White", "Pink", "Red", "Orange", "Yellow"],

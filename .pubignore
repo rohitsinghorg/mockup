@@ -1,0 +1,21 @@
+# Files excluded from the package published to pub.dev.
+# Note: when this file exists, pub ignores the root .gitignore, so the
+# relevant entries from it are repeated here.
+
+# Example app platform runners (the Dart code in example/lib is enough)
+example/android/
+example/ios/
+example/linux/
+example/macos/
+example/web/
+example/windows/
+
+# Tooling / build output
+.dart_tool/
+.idea/
+.github/
+build/
+/pubspec.lock
+*.iml
+*.log
+.DS_Store

@@ -1,3 +1,4 @@
+import 'package:example/screen/api_simulation_screen.dart';
 import 'package:example/screen/automobile_screen.dart';
 import 'package:example/screen/building_screen.dart';
 import 'package:example/screen/emoji_screen.dart';
@@ -36,92 +37,107 @@ class MockupExample extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Mockup Example")),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => AutomobileScreen()),
-                );
-              },
-              child: Text("Automobile Data"),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => BuildingScreen()),
-                );
-              },
-              child: Text("Building Data"),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => EmojiScreen()),
-                );
-              },
-              child: Text("Emoji Data"),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => FlowerScreen()),
-                );
-              },
-              child: Text("Flower Data"),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => QuoteScreen()),
-                );
-              },
-              child: Text("Quote Data"),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => UserScreen()),
-                );
-              },
-              child: Text("User Data"),
-            ),
-            SizedBox(height: 20),
-            Divider(),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => TextScreen()),
-                );
-              },
-              child: Text("Text Data"),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => NumberScreen()),
-                );
-              },
-              child: Text("Number Data"),
-            ),
-          ],
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => AutomobileScreen()),
+                  );
+                },
+                child: Text("Automobile Data"),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => BuildingScreen()),
+                  );
+                },
+                child: Text("Building Data"),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => EmojiScreen()),
+                  );
+                },
+                child: Text("Emoji Data"),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => FlowerScreen()),
+                  );
+                },
+                child: Text("Flower Data"),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => QuoteScreen()),
+                  );
+                },
+                child: Text("Quote Data"),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => UserScreen()),
+                  );
+                },
+                child: Text("User Data"),
+              ),
+              SizedBox(height: 20),
+              Divider(),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => TextScreen()),
+                  );
+                },
+                child: Text("Text Data"),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => NumberScreen()),
+                  );
+                },
+                child: Text("Number Data"),
+              ),
+              SizedBox(height: 20),
+              Divider(),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => ApiSimulationScreen()),
+                  );
+                },
+                child: Text("API Simulation"),
+              ),
+            ],
+          ),
         ),
       ),
     );

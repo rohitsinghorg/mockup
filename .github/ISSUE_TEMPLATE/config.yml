@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://pub.dev/documentation/mockup/latest/
+    about: API reference for every class and method.

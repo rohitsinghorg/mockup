@@ -4,31 +4,38 @@
 /// methods for serialization to and from JSON.
 class EmojiModel {
   /// The emoji character itself.
-  String? emoji;
+  final String? emoji;
 
   /// Full descriptive name of the emoji.
-  String? name;
+  final String? name;
 
   /// Shortcode format used in some applications (e.g., :smile:).
-  String? shortname;
+  final String? shortname;
 
-  /// Unicode code point representation of the emoji.
-  String? unicode;
+  /// Space-separated Unicode code points of the emoji (e.g., "1f602").
+  final String? unicode;
 
   /// HTML entity representation of the emoji.
-  String? html;
+  final String? html;
 
-  /// The category the emoji belongs to (e.g., "People & Body").
-  String? category;
+  /// The category and subcategory the emoji belongs to (e.g.,
+  /// "Smileys & Emotion (face-smiling)").
+  final String? category;
+
+  /// Sort order of the emoji within the Unicode emoji list.
+  ///
+  /// Only available for about 30% of emoji; `null` otherwise.
+  final int? order;
 
   /// Creates an [EmojiModel] instance with the provided properties.
-  EmojiModel({
+  const EmojiModel({
     this.emoji,
     this.name,
     this.shortname,
     this.unicode,
     this.html,
     this.category,
+    this.order,
   });
 
   /// Creates an [EmojiModel] from a JSON map.
@@ -41,6 +48,9 @@ class EmojiModel {
         unicode: json["unicode"],
         html: json["html"],
         category: json["category"],
+        order: json["order"] == null
+            ? null
+            : int.tryParse(json["order"].toString()),
       );
 
   /// Converts this [EmojiModel] to a JSON map.
@@ -53,5 +63,53 @@ class EmojiModel {
         "unicode": unicode,
         "html": html,
         "category": category,
+        "order": order?.toString(),
       };
+
+  /// Returns a copy of this [EmojiModel] with the given fields replaced.
+  EmojiModel copyWith({
+    String? emoji,
+    String? name,
+    String? shortname,
+    String? unicode,
+    String? html,
+    String? category,
+    int? order,
+  }) =>
+      EmojiModel(
+        emoji: emoji ?? this.emoji,
+        name: name ?? this.name,
+        shortname: shortname ?? this.shortname,
+        unicode: unicode ?? this.unicode,
+        html: html ?? this.html,
+        category: category ?? this.category,
+        order: order ?? this.order,
+      );
+
+  @override
+  String toString() =>
+      "EmojiModel(emoji: $emoji, name: $name, shortname: $shortname, unicode: $unicode, html: $html, category: $category, order: $order)";
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EmojiModel &&
+          other.emoji == emoji &&
+          other.name == name &&
+          other.shortname == shortname &&
+          other.unicode == unicode &&
+          other.html == html &&
+          other.category == category &&
+          other.order == order;
+
+  @override
+  int get hashCode => Object.hash(
+        emoji,
+        name,
+        shortname,
+        unicode,
+        html,
+        category,
+        order,
+      );
 }
