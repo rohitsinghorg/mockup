@@ -14,3 +14,5 @@ analyzer:
     # You can set specific rules to be warnings or errors
     avoid_print: warning
     unnecessary_string_escapes: error
+  exclude:
+    - build/**

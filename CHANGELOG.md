@@ -31,6 +31,9 @@ See "Migrating from 1.x" in the README.
 * `JsonDataProvider` is exported as the common type of all data categories.
 * Example app: "API Simulation" screen with infinite scroll, loading, errors
   and retry.
+* Example app migrated from the deprecated `package:flutter/material.dart` to
+  `package:material_ui`; the example now requires Flutter 3.47+. The package
+  itself has no Flutter version change.
 
 ### Changed
 * All data providers share one `JsonDataProvider` base class, replacing ~500

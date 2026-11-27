@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mockup/mockup.dart';
 
 class TextScreen extends StatefulWidget {
@@ -31,45 +31,40 @@ class _TextScreenState extends State<TextScreen> {
             SizedBox(height: 20),
             Text(
               "Random Alphanumeric is:",
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
             SizedBox(height: 10),
             Text(randomAlphanumeric),
             SizedBox(height: 20),
             Text(
               "Two Random Sentences are:",
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
             SizedBox(height: 10),
             Text(twoSentences),
             SizedBox(height: 20),
             Text(
               "Two Random Short Paragraph are:",
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
             SizedBox(height: 10),
             Text(twoShortParas),
             SizedBox(height: 20),
             Text(
               "Two Random Medium Paragraph are:",
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
             SizedBox(height: 10),
             Text(twoMediumParas),
             SizedBox(height: 20),
             Text(
               "Two Random Long Paragraph are:",
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
             SizedBox(height: 10),
             Text(twoLongParas),

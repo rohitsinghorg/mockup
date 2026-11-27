@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:mockup/mockup.dart';
 
 class AutomobileScreen extends StatefulWidget {
@@ -13,8 +13,8 @@ class _AutomobileScreenState extends State<AutomobileScreen> {
   List<AutomobileModel> automobileList = Mockup.automobile.getAll();
   List<AutomobileModel> automobileListWithFixedLength = Mockup.automobile
       .getItems(30);
-  List<AutomobileModel> refreshAutomobileList =
-      Mockup.automobile.getShuffledList();
+  List<AutomobileModel> refreshAutomobileList = Mockup.automobile
+      .getShuffledList();
   AutomobileModel automobileItem = Mockup.automobile.getItemAt(5);
   AutomobileModel refreshAutomobileItem = Mockup.automobile.getRandomItem();
   var json = Mockup.automobile.rawJson;

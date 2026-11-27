@@ -6,6 +6,9 @@ infinite-scroll list backed by the simulated API.
 
 ## Run it
 
+Requires Flutter 3.47 or newer (the app uses the
+[`material_ui`](https://pub.dev/packages/material_ui) package).
+
 ```bash
 git clone https://github.com/rohitsinghorg/mockup.git
 cd mockup/example

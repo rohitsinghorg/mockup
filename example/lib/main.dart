@@ -7,7 +7,7 @@ import 'package:example/screen/number_screen.dart';
 import 'package:example/screen/quote_screen.dart';
 import 'package:example/screen/text_screen.dart';
 import 'package:example/screen/user_screen.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 void main() {
   runApp(const MyApp());
